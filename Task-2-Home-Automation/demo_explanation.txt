@@ -1,0 +1,114 @@
+================================================================
+  HOME AUTOMATION WITH BLUETOOTH — DEMO EXPLANATION
+================================================================
+  Project : Bluetooth-Controlled Home Automation
+  Hardware: Arduino Uno + HC-05 + 4-Channel Relay Module
+  Date    : 2025
+================================================================
+
+WHAT THIS SYSTEM DOES
+─────────────────────
+A mobile phone sends single-character text commands over
+Bluetooth. The HC-05 module receives them and forwards them
+to the Arduino via serial. The Arduino decodes the command
+and switches the corresponding relay channel ON or OFF.
+The relay physically connects or disconnects the AC mains
+supply to the appliance (bulb, fan, etc.).
+
+PRE-DEMO CHECKLIST
+──────────────────
+□ Arduino is powered via USB or 9 V adapter
+□ HC-05 module power LED is blinking (not paired) / solid (paired)
+□ 4-channel relay module is connected; all LEDs should be OFF
+□ Test bulb is wired through Relay-1's NO/COM terminals
+□ Mobile phone Bluetooth is ON
+□ "Serial Bluetooth Terminal" app is installed and connected
+  to HC-05 (default pairing PIN: 1234 or 0000)
+
+STEP-BY-STEP DEMO FLOW
+────────────────────────
+Step 1 – Power On
+  • Connect Arduino to laptop USB or 9 V supply.
+  • Blue LED on HC-05 starts blinking → module is advertising.
+  • Relay module all LEDs OFF → all devices are OFF. ✓
+
+Step 2 – Pair Phone
+  • On Android: Settings → Bluetooth → Scan → select "HC-05"
+  • Enter PIN: 1234 (or 0000)
+  • Status LED on HC-05 changes to slow double-blink → paired. ✓
+
+Step 3 – Open App
+  • Open "Serial Bluetooth Terminal" (or "Bluetooth Terminal HC-05")
+  • Tap the connect icon and choose HC-05.
+  • App shows "Connected" message.
+  • Arduino sends back: "HOME AUTOMATION READY" ✓
+
+Step 4 – Turn Device 1 (Light) ON
+  • Send character: 1
+  • Relay-1 LED turns ON (red LED on relay board lights up)
+  • Audible click from relay
+  • Test bulb glows ON
+  • App receives response: "Device 1 (Light) -> ON" ✓
+
+Step 5 – Turn Device 1 OFF
+  • Send character: a
+  • Relay-1 LED turns OFF
+  • Audible click
+  • Test bulb goes OFF
+  • App receives: "Device 1 (Light) -> OFF" ✓
+
+Step 6 – Turn Device 2 (Fan) ON
+  • Send: 2
+  • Relay-2 LED turns ON
+  • Fan (or test load on relay 2) starts
+  • App receives: "Device 2 (Fan) -> ON" ✓
+
+Step 7 – ALL ON Test
+  • Send: A  (capital A)
+  • All four relay LEDs light up simultaneously
+  • All devices powered
+  • App receives: "ALL DEVICES ON" ✓
+
+Step 8 – ALL OFF Test
+  • Send: X  (capital X)
+  • All four relay LEDs turn OFF
+  • All devices off
+  • App receives: "ALL DEVICES OFF" ✓
+
+Step 9 – Status Check
+  • Send: S
+  • App receives formatted status table:
+    --- STATUS ---
+    D1 Light : OFF
+    D2 Fan   : OFF
+    D3 Socket: OFF
+    D4 Spare : OFF
+    --------------
+
+EXPECTED RESPONSE TIMES
+────────────────────────
+• Bluetooth command → relay click : < 200 ms
+• Typical Bluetooth range         : 10 m line-of-sight
+
+COMMAND QUICK REFERENCE
+────────────────────────
+  '1' → Device 1 ON      'a' → Device 1 OFF
+  '2' → Device 2 ON      'b' → Device 2 OFF
+  '3' → Device 3 ON      'c' → Device 3 OFF
+  '4' → Device 4 ON      'd' → Device 4 OFF
+  'A' → ALL ON
+  'X' → ALL OFF
+  'S' → Status report
+
+SAFETY NOTES FOR DEMO
+─────────────────────
+• Never touch relay terminals while AC mains is connected.
+• Use a low-wattage bulb (≤ 60 W) for demo safety.
+• Keep the AC wiring section insulated and away from
+  Arduino/Bluetooth breadboard section.
+• The relay module's opto-isolator separates low-voltage
+  control from mains voltage.
+
+================================================================
+  END OF DEMO GUIDE
+================================================================
