@@ -1,0 +1,1 @@
+Home Automation with Bluetooth is an embedded systems project that enables wireless control of household electrical appliances using a smartphone. The system uses an Arduino Uno microcontroller paired with an HC-05 Bluetooth module to receive commands from a mobile phone and switch devices ON or OFF through a 4-channel relay module.
