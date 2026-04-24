@@ -3,7 +3,7 @@
 ================================================================
   Project : Bluetooth-Controlled Home Automation
   Hardware: Arduino Uno + HC-05 + 4-Channel Relay Module
-  Date    : 2025
+  Date    : 2026
 ================================================================
 
 WHAT THIS SYSTEM DOES
