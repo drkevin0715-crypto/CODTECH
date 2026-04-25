@@ -1,0 +1,58 @@
+============================================================
+  DEMO OUTPUT LOG
+  Project : Push Button Triggered Temperature Display
+============================================================
+
+── INITIAL STATE (on power-up / reset) ─────────────────────
+
+  LCD Row 0 : "Press Button"
+  LCD Row 1 : (blank)
+
+  Arduino is idle, polling button state in loop().
+  Button pin reads HIGH (INPUT_PULLUP active).
+
+── BUTTON PRESS EVENT ───────────────────────────────────────
+
+  User presses the push button.
+  Pin 2 transitions: HIGH → LOW  (falling edge detected)
+  readAndDisplayTemp() is called.
+
+  ADC Reading   : e.g., rawADC = 153
+  Voltage       : 153 × (5.0 / 1023.0) = 0.747 V
+  Temperature   : 0.747 × 100 = 74.7 °C
+                  [Note: Tinkercad room temp ≈ 25°C;
+                   actual value depends on simulator setting]
+
+  LCD Row 0 : "Temp:"
+  LCD Row 1 : "74.69 C"   (value varies with conditions)
+
+── SUBSEQUENT PRESSES ───────────────────────────────────────
+
+  Each button press clears the LCD and shows a fresh reading.
+  Display reverts to showing the latest temperature until
+  the next press.
+
+── TINKERCAD DEMO STEPS ─────────────────────────────────────
+
+  1. Open Tinkercad Circuits and build the schematic:
+       TMP36 → A0, Button → Pin 2 (GND), LCD I2C → A4/A5
+  2. Upload the code from code/temp_button.ino
+  3. Click "Start Simulation"
+  4. Observe "Press Button" on the LCD
+  5. Click the push button component
+  6. Observe the LCD update to show "Temp: XX.XX C"
+  7. Hover over TMP36 and adjust temperature slider
+  8. Press the button again to see the new reading
+
+── REAL HARDWARE DEMO STEPS ─────────────────────────────────
+
+  1. Wire components per circuit/wiring.txt
+  2. Connect Arduino UNO to PC via USB
+  3. Open Arduino IDE, select Board: UNO, correct COM port
+  4. Install Adafruit_LiquidCrystal library (Library Manager)
+  5. Open code/temp_button.ino and click Upload
+  6. Observe "Press Button" on physical LCD
+  7. Press the push button
+  8. LCD displays current room temperature in °C
+
+============================================================
