@@ -1,1 +1,21 @@
-Home Automation with Bluetooth is an embedded systems project that enables wireless control of household electrical appliances using a smartphone. The system uses an Arduino Uno microcontroller paired with an HC-05 Bluetooth module to receive commands from a mobile phone and switch devices ON or OFF through a 4-channel relay module.
+HOME AUTOMATION WITH BLUETOOTH
+
+Company : CODTECH IT SOLUTIONS 
+
+Name  : KEVIN VICTOR 
+
+Intern ID : CTIS8913
+
+Domain : Embedded Systems 
+
+Duration : 4 Weeks 
+
+Mentor : Neela Santhosh Kumar
+
+Description : This project implements a Bluetooth-controlled home automation system using an Arduino Uno
+microcontroller and an HC-05 Bluetooth module. The system allows a user to turn electrical
+devices ON or OFF by sending simple text commands from a mobile phone. Relay modules act
+as the electromechanical interface between the low-voltage Arduino and the mains-powered
+appliances
+
+Output : 
