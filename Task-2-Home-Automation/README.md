@@ -18,4 +18,5 @@ devices ON or OFF by sending simple text commands from a mobile phone. Relay mod
 as the electromechanical interface between the low-voltage Arduino and the mains-powered
 appliances
 
-Output : 
+Output : <img width="1630" height="833" alt="image" src="https://github.com/user-attachments/assets/9a9ee1db-bdd3-4cd3-b062-2fa9df4a90e5" />
+
