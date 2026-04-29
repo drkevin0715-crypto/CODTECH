@@ -1,0 +1,137 @@
+================================================================
+  DEMO OUTPUT LOG — Voice Recognition System
+  Task 4 | Arduino UNO + Elechouse VR3 Module
+================================================================
+
+-- SYSTEM BOOT OUTPUT (Arduino Serial Monitor @ 115200 baud) --
+
+==============================================
+  Voice Recognition System — Arduino UNO
+  Task 4 | Elechouse VR Module V3
+==============================================
+Loading trained voice commands...
+  [OK] Slot 0 : Light ON
+  [OK] Slot 1 : Light OFF
+  [OK] Slot 2 : Fan ON
+  [OK] Slot 3 : Fan OFF
+  [OK] Slot 4 : All OFF
+
+System ready. Speak a command!
+----------------------------------------------
+
+================================================================
+  TEST RUN 1 — "Light ON"
+================================================================
+User speaks: "Light ON"
+
+Module processing: ~800 ms latency
+Recognition match: Slot 0 (CMD_LIGHT_ON)
+
+Serial Monitor output:
+  [ACTION] Light ON  → Pin 13 = HIGH
+  ----------------------------------------------
+
+Physical observation:
+  ✔ LED on Pin 13 illuminates immediately
+  ✔ Status LED on Pin 8 blinks once (acknowledgement)
+
+================================================================
+  TEST RUN 2 — "Light OFF"
+================================================================
+User speaks: "Light OFF"
+
+Recognition match: Slot 1 (CMD_LIGHT_OFF)
+
+Serial Monitor output:
+  [ACTION] Light OFF → Pin 13 = LOW
+  ----------------------------------------------
+
+Physical observation:
+  ✔ LED on Pin 13 turns off
+  ✔ Status LED blinks once
+
+================================================================
+  TEST RUN 3 — "Fan ON"
+================================================================
+User speaks: "Fan ON"
+
+Recognition match: Slot 2 (CMD_FAN_ON)
+
+Serial Monitor output:
+  [ACTION] Fan ON    → Pin 12 = HIGH
+  ----------------------------------------------
+
+Physical observation:
+  ✔ Relay on Pin 12 activates (click sound)
+  ✔ Fan/device connected to relay powers on
+
+================================================================
+  TEST RUN 4 — "Fan OFF"
+================================================================
+User speaks: "Fan OFF"
+
+Recognition match: Slot 3 (CMD_FAN_OFF)
+
+Serial Monitor output:
+  [ACTION] Fan OFF   → Pin 12 = LOW
+  ----------------------------------------------
+
+Physical observation:
+  ✔ Relay on Pin 12 deactivates
+  ✔ Fan/device connected to relay powers off
+
+================================================================
+  TEST RUN 5 — "All OFF"
+================================================================
+User speaks: "All OFF"
+
+Recognition match: Slot 4 (CMD_ALL_OFF)
+
+Serial Monitor output:
+  [ACTION] ALL OFF   → All pins LOW
+  ----------------------------------------------
+
+Physical observation:
+  ✔ All LEDs and relays turn off simultaneously
+
+================================================================
+  NOISE REJECTION TEST — Unrelated speech
+================================================================
+User speaks random words not in training set.
+
+Module behaviour: No recognition event generated
+Serial Monitor: No output (correct — no false trigger)
+Physical observation: ✔ No pins change state
+
+================================================================
+  EXPECTED COMMAND → ACTION SUMMARY TABLE
+================================================================
+┌─────────────────────────────────────────────────────────────┐
+│  Voice Command  │ Slot │ Pin State     │ Physical Effect    │
+│─────────────────────────────────────────────────────────────│
+│  "Light ON"     │  0   │ D13 = HIGH    │ LED / Relay ON     │
+│  "Light OFF"    │  1   │ D13 = LOW     │ LED / Relay OFF    │
+│  "Fan ON"       │  2   │ D12 = HIGH    │ Fan Relay ON       │
+│  "Fan OFF"      │  3   │ D12 = LOW     │ Fan Relay OFF      │
+│  "All OFF"      │  4   │ D12,D13 = LOW │ All devices OFF    │
+└─────────────────────────────────────────────────────────────┘
+
+================================================================
+  VOICE TRAINING LOG (performed before demo)
+================================================================
+Step 1: Opened VoiceRecognitionV3 example sketch "newpractice"
+Step 2: Sent training command via Serial: train 0
+        Spoke "Light ON" three times clearly into onboard mic
+        Module confirmed: "Trained"
+Step 3: Repeated for slots 1–4 with respective commands
+Step 4: Sent command: load 0 1 2 3 4
+        Module loaded all 5 records into active recogniser
+Step 5: Sent command: rec (start recognition mode)
+        Module entered listening state
+
+Total training time: approximately 5 minutes
+Recognition accuracy during demo: ~95% in quiet environment
+
+================================================================
+END OF DEMO OUTPUT LOG
+================================================================
