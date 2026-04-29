@@ -16,4 +16,5 @@ Description : This project is built following the reference design published at 
 core embedded systems concepts including UART communication, hardware interrupt-driven event
 processing, and GPIO-based actuator control.
 
-Output :
+Output :<img width="844" height="525" alt="image" src="https://github.com/user-attachments/assets/a453198a-2550-4ab6-a222-506b4c82091b" />
+
